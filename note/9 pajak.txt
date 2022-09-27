@@ -1,0 +1,21 @@
+9 pajak
+-->SPTPD
+-->OMZET
+-->BILL bon 
+
+penyesuaian perhitungan
+
+aphb -> 3 config
+njoptkp -> ada config
+pengurangan -> beda - beda
+besaran npoptkp 
+upload dokumen
+
+payment tipe -> pembeda kurang bayar 
+
+
+-->GET DATA BPHTB by service or query
+
+bphtb bisa langsung dibayar -> alur verifikasi tidak ada
+
+NPOP -> dicari yg lebih besa antara harga transaksi dan NJOP, kecuali lelang -> harga transaksi

@@ -1,0 +1,96 @@
+INSERT INTO jalan_nomor
+SELECT NULL
+	,
+	'/LIS/',
+	cpm_id,
+--     lpad((row_number() OVER ())::text,8,'0'),
+	cpm_tgl_lapor,
+	cpm_tahun_pajak 
+FROM
+	patda_jalan_doc 
+ORDER BY
+	cpm_tgl_lapor ASC
+	
+	SELECT lpad((row_number() OVER ())::text,8,'0'),
+	cpm_id,
+	tgl_lapor
+	from jalan_nomor
+	
+	
+	UPDATE jalan_nomor
+SET no_urut=subquery.num
+FROM (SELECT cpm_id, lpad((row_number() OVER ())::text,8,'0') as num
+      FROM jalan_nomor) AS subquery
+WHERE jalan_nomor.cpm_id=subquery.cpm_id;
+
+select concat('9',no_urut,format, to_char(to_date(tahun_pajak::text, 'YYYY'), 'YY')) from jalan_nomor
+
+UPDATE jalan_nomor
+SET cpm_no=subquery.num
+FROM (SELECT cpm_id, concat('9',no_urut,format, to_char(to_date(tahun_pajak::text, 'YYYY'), 'YY')) as num
+      FROM jalan_nomor) AS subquery
+WHERE jalan_nomor.cpm_id=subquery.cpm_id;
+
+
+UPDATE jalan_nomor
+SET cpm_no=subquery.num
+FROM (SELECT cpm_id, concat('9',no_urut,format, coalesce(to_char(to_date( tahun_pajak :: TEXT, 'YYYY' ), 'YY' ), to_char(to_date( tgl_lapor :: TEXT, 'YYYY-MM-DD' ), 'YY' ))) as num
+      FROM jalan_nomor) AS subquery
+WHERE jalan_nomor.cpm_id=subquery.cpm_id;
+
+
+UPDATE patda_jalan_doc
+SET cpm_no=subquery.num
+FROM (SELECT cpm_id, cpm_no as num
+      FROM jalan_nomor) AS subquery
+WHERE patda_jalan_doc.cpm_id=subquery.cpm_id;
+
+hotel, restoran, jalan
+
+
+UPDATE simpatda_gw 
+SET sspd = subquery.num 
+FROM
+	(
+	SELECT
+	A.sspd,
+	lpad( A.sptpd, 8, '0' ),
+		concat (
+			'9',
+			lpad( A.sptpd, 8, '0' ),
+			'/',
+			'HTL',
+			'/',
+			"right" ( A.simpatda_tahun_pajak, 2 ) 
+		) as num,
+		id_switching
+	FROM
+		simpatda_gw A 
+	WHERE
+		A.simpatda_type IN ( '4', '24' ) 
+	) AS subquery 
+WHERE
+	simpatda_gw.id_switching = subquery.id_switching;
+
+UPDATE simpatda_gw 
+SET sptpd = sspd,
+no_pelaporan = sspd 
+WHERE
+	simpatda_type IN ( '4', '24' )
+
+
+UPDATE patda_parkir_doc 
+SET cpm_no_sspd = concat (
+	"left" ( cpm_no, 9 ),
+	'/',
+	'PKR',
+	'/',
+"right" ( cpm_tahun_pajak, 2 )
+) 
+
+select concat (
+	"left" ( cpm_no, 9 ),
+	'/',
+	'HIB',
+	'/',
+"right" ( cpm_tahun_pajak, 2 ) )from patda_hiburan_doc

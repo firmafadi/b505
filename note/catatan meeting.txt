@@ -1,0 +1,11 @@
+1. workflow -> (required post and pre condition)
+2. retest service penetapan java
+3. worlflow based -> laravel stapie
+4. self and official assestment -> mirip 9 pajak
+5. service based b
+
+spatie -> laravel permission
+
+tambahkan service, migrasi, porting 
+-> grouping per pelayanan
+-> porting service java

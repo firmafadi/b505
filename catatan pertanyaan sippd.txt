@@ -1,0 +1,16 @@
+1. rollback data master bumi -> membatalkan = menghapus data master terakhir/inputan ?
+2. rollback data master bangunan -> membatalkan = menghapus data master terakhir/inputan ?
+3. table peta znt == znt per blok di daerah sukabumi ?
+4. detail dhkp ?
+5. perbandingan kelas kelurahan ? *
+6. nilai pajak minimal -> minimal pajak terhutang di config ?
+7. klasifikasi nilai buku tabelnya CPPMOD_PBB_TARIF_BUKU ?
+8. table stimulus penetapan ?
+9. table stimulus pembayaran ?
+10. masa penetapan sppt config susulan & final ?
+11. pejabat penanda tangan ?
+12. simulasi penilaian
+
+
+readable
+can understand other developer

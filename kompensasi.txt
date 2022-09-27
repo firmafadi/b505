@@ -1,0 +1,69 @@
+"-- MOM 2021-06-21 --
+1. Inputan Kompensasi NOP & Tahun Pajak
+2. Acuan kompensasi dari tanggal kelebihan bayar
+3. Denda dihitung dari tanggal jatuh tempo s.d. tanggal kelebihan bayar
+4. Kompensasi ada 2, sbb :
+	- Kompensasi ketetapan tahun berjalan & tahun berikutnya
+	- Kompensasi ketetapan tahun piutang
+5. Pengecekan status pembayaran ketetapan yang akan dikompensasikan, hanya ketetapan yang statusnya belum bayar saja yang bisa dikompensasikan.
+6. Untuk kompensasi ketetapan tahun berjalan & tahun berikutnya, sbb :
+	A. Jika nilai ketersediaan kompensasi lebih besar dari nilai yang akan dikompensasikan (Pokok + Denda), maka :
+		- Bisa langsung dieksekusi kompensasi
+		- Tercatat nilai pokok & denda sebelum kompensasi
+		- Tercatat nilai pokok & denda pengurangan kompensasi
+		- Tercatat nilai sisa kompensasi
+		- Tanggal lunas pembayaran = tanggal kelebihan bayar
+	
+			=> contoh NOP 1 punya kelebihan bayar tahun pajak 2020 pada tanggal 2020-07-10 sebesar 100.000, dan akan dikompensasikan ke tahun pajak 2021 yang pokok nya 50.000, tanggal jatuh tempo = 2021-09-30, dan denda nya = 0 per tanggal kelebihan bayar.
+			+ Pokok Sebelum Kompensasi = 50.000
+			+ Denda Sebelum Kompensasi = 0
+			+ Pengurangan Kompensasi Pokok = 50.000
+			+ Pengurangan Kompensasi Denda = 0
+			+ Pokok Setelah Kompensasi = 0
+			+ Denda Setelah Kompensasi = 0
+			+ Sisa Kompensasi = 50.000
+			+ Tanggal Pembayaran = 2020-07-10 00:00:00
+	
+	B. Jika nilai ketersediaan kompensasi lebih kecil dari nilai yang akan dikompensasikan (Pokok + Denda), maka :
+		- Bisa langsung dieksekusi kompensasi
+		- Tercatat nilai pokok & denda sebelum kompensasi
+		- Tercatat nilai pokok & denda pengurangan kompensasi
+		- Tercatat nilai sisa kompensasi
+		- Nilai sisa pokok setelah kompensasi tetap bisa dibayarkan di Bank
+		
+			=> contoh NOP 2 punya kelebihan bayar tahun pajak 2020 pada tanggal 2020-08-09 sebesar 50.000, dan akan dikompensasikan ke tahun pajak 2021 yang pokok nya 100.000, tanggal jatuh tempo = 2021-09-30, dan denda nya 0 per tanggal kelebihan bayar.
+			+ Pokok Sebelum Kompensasi = 100.000
+			+ Denda Sebelum Kompensasi = 0
+			+ Pengurangan Kompensasi Pokok = 50.000
+			+ Pengurangan Kompensasi Denda = 0
+			+ Pokok Setelah Kompensasi = 50.000
+			+ Denda Setelah Kompensasi = Denda berjalan sesuai dengan tanggal pembayaran sisa pokok setelah kompensasi
+			+ Sisa Kompensasi = 0
+
+7. Untuk kompensasi ketetapan piutang, sbb :
+	A. Jika nilai ketersediaan kompensasi lebih besar dari nilai yang akan dikompensasikan (Pokok + Denda), maka :
+		- Bisa langsung dieksekusi kompensasi
+		- Tercatat nilai pokok & denda sebelum kompensasi
+		- Tercatat nilai pokok & denda pengurangan kompensasi
+		- Tercatat nilai sisa kompensasi
+		- Tanggal lunas pembayaran = tanggal kelebihan bayar
+	
+			=> contoh NOP 3 punya kelebihan bayar tahun pajak 2020 pada tanggal 2020-07-10 sebesar 100.000, dan akan dikompensasikan ke tahun pajak 2019 yang pokok nya 50.000, tanggal jatuh tempo = 2019-09-30, dan denda nya 5.000 per tanggal kelebihan bayar.
+			+ Pokok Sebelum Kompensasi = 50.000
+			+ Denda Sebelum Kompensasi = 5.000
+			+ Pengurangan Kompensasi Pokok = 50.000
+			+ Pengurangan Kompensasi Denda = 5.000
+			+ Pokok Setelah Kompensasi = 0
+			+ Denda Setelah Kompensasi = 0
+			+ Sisa Kompensasi = 45.000
+			+ Tanggal Pembayaran = 2020-07-10 00:00:00
+	
+	B. Jika nilai ketersediaan kompensasi lebih kecil dari nilai yang akan dikompensasikan (Pokok + Denda), maka :
+		- Tidak bisa dieksekusi kompensasi
+		- Muncul notif ""Ketersediaan kompensasi kurang dari nilai yang akan dikompensasikan""
+		- WP akan membayarkan dulu kekurangan kompensasi nya, secara manual setoran/transfer
+		- Dinas akan mencatat kekurangan kompensasi yang telah dibayarkan WP sebagai perolehan kompensasi
+		- Dinas akan eksekusi ulang kompensasi (point 7. A.)
+		
+		=> contoh NOP 4 punya kelebihan bayar tahun pajak 2020 pada tanggal 2020-08-09 sebesar 50.000, dan akan dikompensasikan ke tahun pajak 2019 yang pokok nya 50.000, tanggal jatuh tempo = 2019-09-30, dan denda nya 5.000 per tanggal kelebihan bayar.
+		+ Muncul notif ""Ketersediaan kompensasi kurang Rp. 5.000 dari nilai yang akan dikompensasikan"""

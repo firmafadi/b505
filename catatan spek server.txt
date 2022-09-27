@@ -1,0 +1,5 @@
+PHP 7.3.31 (cli) (built: Sep 21 2021 10:24:03) ( NTS )
+postgres (PostgreSQL) 13.5
+openjdk version "1.8.0_302"
+git version 1.8.3.1
+Composer version 2.1.6 2021-08-19 17:11:08

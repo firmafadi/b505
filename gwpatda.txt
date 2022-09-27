@@ -1,0 +1,16 @@
+UPDATE migrasi_data_pembayaran_copy1 
+SET id_switching = subquery.cpm_id
+FROM
+	( SELECT cpm_id, cpm_no_sspd FROM public.patda_jalan_doc) AS subquery 
+WHERE
+	migrasi_data_pembayaran_copy1.nomor_sspd = subquery.cpm_no_sspd 
+	
+	
+	
+UPDATE migrasi_data_pembayaran_copy1 
+SET jenis_pajak = '10' 
+WHERE
+	jenis_pajak = '11'
+	
+	
+select jenis_pajak from migrasi_data_pembayaran_copy1 GROUP BY jenis_pajaka

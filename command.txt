@@ -1,0 +1,2 @@
+du -ahx / | sort -rh | head -10
+du -sh -- *  | sort -rh

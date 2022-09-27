@@ -1,0 +1,13 @@
+INSERT INTO users ( NAME, email, PASSWORD, username, active, INTEGER, deleted_by, created_at, updated_at ) SELECT
+COALESCE(cpm_nama_wp,'-'),
+COALESCE(cpm_email_wp,CONCAT ( cpm_user :: TEXT, '@mail.com' )),
+cpm_user,
+cpm_user,
+'3',
+cpm_jenis_pajak :: INTEGER,
+'0',
+cpm_tgl_join :: TIMESTAMP,
+cpm_tgl_update :: TIMESTAMP 
+FROM
+	patda_wp
+ON CONFLICT (username) DO NOTHING

@@ -1,0 +1,8 @@
+Yang skrg paling, ngereport :
+1. Perubahan struktur egov
+2. Untuk developer baru di tim support insyaAlloh tanggal 2 orang masuk, menggantikan rizwan & saya
+3. Ari mulai minggu depan development cuman tetap main tasknya di tim support (untuk transisi)
+4. Dan prepare mencari developer pengganti ulumudin yg nanti agustus resign (info terakhir dari al, fix mau resign)
+5. tim devel masih support vtax mobile, tte, migrasi
+6. tim support antrian task (yg statusnya open) mulai nambah lagi, per kemarin ini skitar 75 task
+7. sippd belum ada service perizinan -> follow up sama mba

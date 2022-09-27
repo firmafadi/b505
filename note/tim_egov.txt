@@ -1,0 +1,55 @@
+1. TAR GZ :
+tar -czvf [nama_file_hasil_tar].tar.gz [nama_folder_yang_akan_di_tar]
+contoh :
+tar -czvf html.tar.gz /var/www/html/
+
+2. UNTAR GZ : 
+tar -czvf [nama_file_yang_akan_di_untar].tar.gz
+contoh :
+tar -xzvf html.tar.gz
+
+3. DUMP MYSQL :
+mysqldump -u[user] -p[password] --routines [nama_database] > [lokasi/nama_file_hasil_dump].sql
+contoh :
+mysqldump -uroot -pgetpass --routines SW_PBB > /home/SW_PBB.sql
+
+4. RESTORE MYSQL :
+mysql -u[user] -p[password] [nama_database] < [lokasi/nama_file_hasil_dump].sql
+contoh :
+mysql -uroot -pgetpass SW_PBB < /home/SW_PBB.sql
+
+
+
+User & Password SSH/Server :
+
+User : tim_egov
+Pass : tim_egov_sVRssh@-
+
+
+User & Password Database :
+
+User : tim_egov
+Pass : 95b14e258c5b11eb
+
+bphtb 
+
+00000038 327303000500500730
+00000039 327303000600500570
+00000041 327303000500200100
+
+9 pajak 
+
+P100000571010 2021 hiburan 
+P100000381010 2021 hiburan
+P100000011601 2021 parkir
+
+pbb
+
+820402000400200630 2017
+820402000400100590 2017
+820402000300101210 2017
+
+
+
+
+

@@ -1,0 +1,24 @@
+package main
+
+import "fmt"
+
+func main() {
+	var addr string = "addr"
+	var name string = "testName"
+
+	if addr == "addr" {
+		name = "in"
+	}
+
+	fmt.Println(name, addr, addNumber(1, 8), multipleNumber(9, 2))
+}
+
+func addNumber(a int, b int) int {
+	var value = a + b
+	return value
+}
+
+func multipleNumber(a, b int) int {
+	var value = a * b
+	return value
+}

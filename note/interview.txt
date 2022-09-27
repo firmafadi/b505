@@ -1,0 +1,39 @@
+1. struktur framework s
+2. security di laravel s
+3. support implementasi database apa saja 
+4. implementasi UI libray, mis. dg bootstrap
+5. implementasi restful api di laravel s
+
+- Eloquent ORM
+- Database migration
+- Pernah validasi -> cara buat request ?
+- Jelaskan CSRF
+- Database Migration-> cara migrasi & rollback
+- Eloquent -> function ->touch
+- HTTP Client -> vue
+
+migration classes
+up() and down()
+
+
+1. Struktur framework -> valid
+2. Flow development -> valid
+3. CRUD Database -> belum pernah pake Eloquen/query builder, hanya pakai query manual
+4. Implementasi additional UI/JS -> belum pernah
+5. Migration -> so so / pernah pakai tapi belum buat dari awal
+6. Validasi -> buat manual/belum pakai laravel Request
+7. Restfull api -> fetch pakai curl belum pernah pakai laravel http client/guzzle
+8. Pernah pake vue js -> nilai plus
+
+- angular
+
+1. perkenalan diri
+1. project apa saja
+2. framework apa saja
+3. flow development
+4. database apa saja
+5. code style/clean code
+
+6. DDL ?
+7. DML ?
+8. Step GIT ?

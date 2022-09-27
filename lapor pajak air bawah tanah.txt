@@ -1,0 +1,32 @@
+lapor pajak air bawah tanah
+- pilih npwpd -> profil
+- pilih nop -> profil
+- pilih rekening ->profil
+- input pajak -> doc & tranmain 
+
+
+reklame, mineral mblb -> pilih 
+
+doc atr mineral, abt -> 
+
+
+--->
+- balikpapan patda op / demo profil
+- balikpapan 
+
+
+palembang -> plg 
+balikpapan -> 
+
+
+
+
+kecuali reklame -> perhitungan php
+
+
+
+
+1 0 -> draft
+2 0 -> difinalkan/diproses
+4 0 -> ditolak/dibatalkan
+5 0 -> disetujui
